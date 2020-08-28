@@ -14,9 +14,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         game.genNumbers()
-        game.leftNumber
-        game.rightNumber
-        game.score
-        game.checkAnswer(button_main_left.text.toString().toInt())
+        updateButtons()
+    }
+
+    fun updateButtons() {
+        button_main_left.text = leftNumber.toString()
+        button_main_right.text = rightNumber.toString()
+    }
+
+    fun onClickLeft(view : View)
+    {
+        Toast.makeText(this, game.checkAnswer(button_main_left.text.toString().toInt()), Toast.LENGTH_SHORT).show()
+        textView_main_score.text = score.toString()
+        updateButtons()
+    }
+
+    fun onClickRight(view : View)
+    {
+        Toast.makeText(this, game.checkAnswer(button_main_right.text.toString().toInt()), Toast.LENGTH_SHORT).show()
+        textView_main_score.text = score.toString()
+        updateButtons()
     }
 }

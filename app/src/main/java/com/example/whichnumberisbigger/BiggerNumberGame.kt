@@ -1,33 +1,47 @@
 package com.example.whichnumberisbigger
+// POJO = Plain Old Java Object
+var leftNumber = 0
+var rightNumber = 0
+var score = 0
 
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.coroutines.coroutineContext
+class BiggerNumberGame(private val lowerLimit: Int, private val upperLimit: Int ) {
 
-class BiggerNumberGame(val lowerLimit: Int, val upperLimit: Int ) {
-    var leftNumber = 0
-    var rightNumber = 0
-    var score = 0
+    init {
+        genNumbers()
+    }
 
     //Generate random numbers
     fun genNumbers() {
-        leftNumber = (Math.random() * 100).toInt()
-        rightNumber = (Math.random() * 100).toInt()
+        leftNumber = (Math.random() * upperLimit + lowerLimit).toInt()
+        rightNumber = (Math.random() * upperLimit + lowerLimit).toInt()
         while(leftNumber == rightNumber)
         {
-            rightNumber = (Math.random() * 100).toInt()
+            rightNumber = (Math.random() * upperLimit + lowerLimit).toInt()
         }
     }
 
     //Check the answer, update score, return a message
     fun checkAnswer(answer:Int) : String {
-        if(answer > leftNumber || answer > rightNumber)
+        var result: String = ""
+        var biggerNumber = 0
+        if(leftNumber > rightNumber) {
+            biggerNumber = leftNumber
+        }
+        else {
+            biggerNumber = rightNumber
+        }
+        if(answer == biggerNumber)
         {
-            return "Correct! You got it!"
+            result = "Correct! You got it!"
+            score++
+            genNumbers()
         }
         else
         {
-            return "Wrong. How can you be this bad?"
+            result = "Wrong. How can you be this bad?"
+            score--
+            genNumbers()
         }
+        return result
     }
 }

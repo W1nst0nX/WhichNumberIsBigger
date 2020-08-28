@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9C27B0"
     tools:context=".MainActivity">
 
     <TextView
@@ -11,19 +12,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_main_right"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_main_left"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <Button
         android:id="@+id/button_main_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#1A51E3"
         android:onClick="onClickLeft"
         android:text="Button"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,8 +38,11 @@
         android:id="@+id/button_main_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#F82121"
         android:onClick="onClickRight"
         android:text="Button"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
